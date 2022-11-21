@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+  }
+  
+#header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header #tittle-conteiner{
+    text-align: center;
+}
+#header #tittle-conteiner h1{
+    font-size: 40px;   
+}
+
+#header #tittle-conteiner p{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+#total{
+    background-color: rgb(83, 90, 95 );
+    width: 100%;
+    height: 71px;
+    margin: 0 0 40px 0px;
+    padding: 18px;
+    display: flex;
+    color: #ffff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top:0
+    
+}
+#total p{
+    font-size: 24px;
+    padding:0 20px;
+
+}
+#center{
+    width: 100%;
+    height: 100vh;
+    /* background-color: blueviolet; */
+}
+#wrapper{
+    padding: 10px 100px 40px 100px;
+     display: grid;
+    grid-template-columns: 410px 410px 410px 410px;
+    grid-template-rows: 548px 548px ;
+    /* column-gap: 15px;
+    row-gap: 15px; */
+    width: 100%;
+    
+
+}
+#wrapper #item{
+    margin: 20px 30px;
+    border: 0.1px solid rgb(227, 227, 227);
+    height: 528px;
+    width: 380px;
+    background-color: rgb(123, 119, 126);
+    text-align: center;
+    border-radius: 4px;
+}
+#item #img{
+    height: 380px;
+    width: 100%;
+}
+#item {
+    color: #ffff;
+    font-size: 18px;
+}
+#item span{
+    padding-top: -10px;
+
+}
+#buyAndSell{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    line-height: 100%;
+    height: 50px;
+    font-size:x-large
+}
+#item .sell {
+    font-size:xx-large ;
+   background-color: crimson;
+   opacity: 0.5;
+  
+   
+    
+}
+#item button#buy {
+    font-size:xx-large ;
+    background-color:green;
+}
+#item button:hover{
+    cursor: pointer;
+}
+#buyAndSell span#amout{
+   line-height: 50px;
+}
+#footer{
+    height: 100px;
+    width: 100%;
+  /*   background-color: blue; */
+    position: relative;
+    left: 0;
+    bottom: -200px;
+}
