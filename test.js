@@ -59,23 +59,31 @@ let listProducts=[
         quantum: 0
     },
 ]
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
+}
 function renderProduct() {
     let x=document.getElementById("sell")
     let p = document.getElementById("wrapper")
     /* console.log(p); */
-    let result = ""
-    for (let i = 0; i < listProducts.length; i++) {
+    let result = "" 
+   
+    for (let i = 0; i < listProducts.length; i++) {               
         result += `
             <div id="item">
                 <div id="img">
                 <img src="${listProducts[i].img}" style="width:100% ;object-fit: cover; height:100%">
                 </div>
                 <p>${listProducts[i].name}</p>
-                <span> $${numberWithCommas(listProducts[i].price)}</span>
+                <span> $ ${numberWithCommas(listProducts[i].price)}</span>
                 <div id="buyAndSell">
-                    <button  onclick="sell(${listProducts[i].id})"class="sell" id="sell" style="opacity: ${listProducts[i].quantum==0 ? 0.5 : 1}"> Sell</button>
+                    <button  onclick="sell(${listProducts[i].id})"class="sell" id="sell" style="opacity: ${listProducts[i].quantum==0 ? 0.3 : 1}"> Sell</button>
                     <span id="amout">${listProducts[i].quantum}</span>
-                    <button onclick="buy(${listProducts[i].id})" id="buy">Buy</button>
+                    <button onclick="buy(${listProducts[i].id})" id="buy" >Buy</button>
                 </div>
             </div>       
         `
@@ -84,31 +92,39 @@ function renderProduct() {
 }
 renderProduct()
 
-function numberWithCommas(x) {
-    x = x.toString();
-    var pattern = /(-?\d+)(\d{3})/;
-    while (pattern.test(x))
-        x = x.replace(pattern, "$1,$2");
-    return x;
-}
+
 function renderRemaining() {
-    p=document.getElementById("totalMoney") 
+    p1=document.getElementById("totalMoney") 
+    p2=document.getElementById("percent")
     let a=0
+    let result1
+    let result2
     for (let i = 0; i < listProducts.length; i++) {
         a= a + listProducts[i].quantum*listProducts[i].price       
     }
     console.log("tien da mua",a);
-   
-   let result= ` Remaining ${numberWithCommas(217000000000-a)} $`
-   
-     p.innerHTML=result 
+    if (a<=217000000000) {
+         result1= ` Remaining ${numberWithCommas(217000000000-a)} $`
+         let x=(a/217000000000)*100
+         result2= ` You only spent ${x.toFixed(4)}% of the total!`
+         
+    }else{
+         result1= ` You ran out of money`
+         result2= ` `
+         
+        
+
+         
+    } 
+     p1.innerHTML=result1
+     p2.innerHTML=result2
 }
 renderRemaining()
 
-function renderPecent(){
+/* function renderPecent(){
     p=document.getElementById("percent")
 
-/*   console.log(11111); */
+   console.log(11111); 
     let a=0
     
     for (let i = 0; i < listProducts.length; i++) {
@@ -118,7 +134,7 @@ function renderPecent(){
    let result=` You only spent ${x.toFixed(4)}% of the total!`
      p.innerHTML=result
 }
-
+ */
 
 
 
